@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}details{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10" style="margin:0 auto;">
+        <div class="card container-fluid" style="margin-top: 1rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{title}} </h5>
+
+              <label >Description : </label>
+              <p class="card-text">{{description}}</p>
+
+              <label >category : </label>
+              <p class="card-text">{{category}}</p>
+
+              <label >scheduling : </label>
+              <p class="card-text" >{{scheduling}}</p>
+
+              <label for="priority">Priority : </label>
+              <p class="card-text">{{priority}}</p>
+
+              <label for="priority">scheduling : </label>
+              <p class="card-text">{{scheduling}}</p>
+
+              <label for="priority">created_at :  </label>
+              <p class="card-text">{{created_at}}</p>
+            </div>
+          </div>
+    </div>
+</div> 
+{% endblock %}

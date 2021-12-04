@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}All categories{% endblock %}
+{% block content %}
+
+{% for eachctask in todos %}
+<div class="row">
+    <div class="col-md-10" style="margin:0 auto;">
+        <div class="card container-fluid" style="margin-top: 1rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{eachctask.priority}}  {{eachctask.title}}</h5>
+              <p class="card-text">{{eachctask.created_at}}</p>
+              
+              <a href="/delete/{{eachctask.id}}" class="btn btn-danger">Delete</a>
+              <a href="/edit/{{eachctask.id}}" class="btn btn-warning">Edit</a>
+              <a href="{% url 'todo_detail' eachctask.pk %}" class="btn btn-info">Details</a>
+            </div>
+          </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

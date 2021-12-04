@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}All Todo tasks{% endblock %}
+{% block content %}
+
+
+<div class="row">
+  <form class="form-inline mt-5" style="margin: 0 auto;" action="{% url 'searchdata' %}">
+    <div class="form-group mx-sm-2 mb-2">
+      <input type="search" class="form-control" name='query' id="query" placeholder="Search By Title">
+    </div>
+      <button type="submit" class="btn btn-primary mb-2">Search</button>
+  </form>
+
+
+    <div class="col-md mx-sm-2" style="margin: 0 auto;">
+      <form action="{% url 'sortdata_by_scheduling' %}">
+        <button type="submit" class="btn btn-primary btn-block" style="display: block;margin: 1rem auto;">sort tasks by scheduling</button>
+      </form>
+      <form action="{% url 'sortdata_by_id' %}">
+        <button type="submit" class="btn btn-primary btn-block" style="display: block;margin: 1rem auto;">sort tasks by id</button>
+      </form>
+      <form action="{% url 'sortdata_by_priority' %}">
+        <button type="submit" class="btn btn-primary btn-block" style="display: block;margin: 1rem auto;">sort tasks by priority</button>
+      </form>
+    </div>
+</div> 
+
+
+
+{% for eachtodo in alltodos %}
+<div class="row mb-1">
+    <div class="col-md-10" style="margin:0 auto;">
+        <div class="card container-fluid" style="margin-top: 1rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{eachtodo.priority}}  {{eachtodo.title}}</h5>
+              <p class="card-text">{{eachtodo.Scheduling}}</p>
+              
+              <a href="/delete/{{eachtodo.id}}" class="btn btn-danger">Delete</a>
+              <a href="/edit/{{eachtodo.id}}" class="btn btn-warning">Edit</a>
+              <a href="{% url 'todo_detail' eachtodo.pk %}" class="btn btn-info">Details</a>
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

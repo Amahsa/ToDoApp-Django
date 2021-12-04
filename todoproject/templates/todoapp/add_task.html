@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}add task{% endblock %}
+{% block content %}
+
+
+  <div class="row mt-2">
+    <div class="col-md-10" style="margin: 0 auto;">
+      <form action="{% url 'submit' %}">
+        <div class="form-group">
+          <label for="title">Todo Title</label>
+          <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" class="form-control" id="category" name="category">
+        </div>
+        <div class="form-group">
+          <label for="description">Todo Description</label>
+          <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="priority">Todo Priority</label>
+          <input type="number" class="form-control" id="priority" name="priority">
+        </div>
+        <div class="form-group">
+          <label for="priority">Scheduling</label>
+          <input type="date" class="form-control" id="scheduling" name="scheduling">
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin: 0 auto;display: block;">Add</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

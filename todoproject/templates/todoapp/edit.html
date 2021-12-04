@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Edit Data{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-10" style="margin: 0 auto;">
+      <form action="/update/{{id}}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="title">Todo Title</label>
+          <input type="text" class="form-control" id="title" name="title" value={{title}}>
+        </div>
+        <div class="form-group">
+          <label for="category">Todo category</label>
+          <input type="text" class="form-control" id="category" name="category" value={{category}}>
+        </div>
+        <div class="form-group">
+          <label for="description">Todo Description</label>
+          <textarea class="form-control" id="description" name="description" rows="3">{{description}}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="priority">Todo Priority</label>
+          <input type="number" class="form-control" id="priority" name="priority" value={{priority}}>
+        </div>
+         <div class="form-group">
+          <label for="scheduling">Todo Scheduling</label>
+          <input type="date" class="form-control" id="scheduling" name="Scheduling" value={{Scheduling}} >
+        </div>
+        {% comment %} value={{Scheduling}} {% endcomment %}
+        <button type="submit" class="btn btn-primary" style="margin: 0 auto;display: block;">Update</button>
+      </form>
+      </div>
+      </div>
+{% endblock %}

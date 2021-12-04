@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}All categories{% endblock %}
+{% block content %}
+
+{% for eachcat in category_list %}
+<div class="row">
+    <div class="col-md-10" style="margin:0 auto;">
+        <div class="card container-fluid" style="margin-top: 1rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{eachcat.category_name}}</h5>              
+              
+              <a href="{% url 'category_delete' eachcat.id %}" class="btn btn-danger">Delete</a> 
+              <a href="{% url 'category_edit' eachcat.id %}" class="btn btn-warning">Edit</a>
+              <a href="" class="btn btn-info">Details</a>
+              <a href="{% url 'category_tasks' eachcat.pk %}" class="btn btn-success">Category Tasks</a>
+
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}
